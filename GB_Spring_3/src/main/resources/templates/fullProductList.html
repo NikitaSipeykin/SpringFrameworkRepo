@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Full product list</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+              rel="stylesheet"
+              integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+              crossorigin="anonymous">
+    </head>
+    <body>
+        <h1>This is full product list</h1>
+        <table class="table table-hover">
+            <thead>
+                <td>id</td>
+                <td>title</td>
+                <td>cost</td>
+            </thead>
+            <tbody>
+                    <tr th:each="product : ${products}">
+                        <td th:text="${product.id}">1</td>
+                        <td th:text="${product.title}">Boss</td>
+                        <td th:text="${product.cost}">123</td>
+                        <td><form method="post" th:action="@{${'/productInfo?id=' + product.id}}">
+                            <button type="submit" class="btn btn-info">Info</button>
+                        </form></td>
+                        <td><form method="post" th:action="@{${'/delete?id=' + product.id}}">
+                            <button type="submit" class="btn btn-danger">x</button>
+                        </form></td>
+
+                    </tr>
+            </tbody>
+        </table>
+        <form method="get" th:action="@{${'/add'}}">
+            <button type="submit" class="btn btn-info">Add product</button>
+        </form>
+    </body>
+</html>
