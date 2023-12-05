@@ -47,15 +47,15 @@ public class ProductRepository {
                 ifPresent(productList::remove);
     }
 
-    @PostConstruct
-    public void starterPack(){
-        this.productList = new ArrayList<>();
-
-        while (idCounter < 5) {
-            int id = idCounter++;
-            String title = PRODUCT_NAME[random.nextInt(19)];
-            int cost = random.nextInt(999999);
-            productList.add(new Product(id, title, cost));
-        }
-    }
+//    @PostConstruct
+//    public void starterPack(){
+//        this.productList = new ArrayList<>();
+//
+//        while (idCounter < 5) {
+//            int id = idCounter++;
+//            String title = PRODUCT_NAME[random.nextInt(19)];
+//            int cost = random.nextInt(999999);
+//            productList.add(new Product(id, title, cost));
+//        }
+//    }
 }

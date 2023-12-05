@@ -23,7 +23,7 @@ public class ProductController {
     }
 
     @PostMapping("/productInfo")
-    public String getProductInfo(@RequestParam Integer id, Model model){
+    public String getProductInfo(@RequestParam Long id, Model model){
         model.addAttribute("product", productService.getOneProduct(id));
         return  "productInfo";
     }
@@ -40,7 +40,7 @@ public class ProductController {
     }
 
     @PostMapping("/delete")
-    public String deleteProduct(@RequestParam Integer id){
+    public String deleteProduct(@RequestParam Long id){
         productService.deleteProductById(id);
         return "redirect:all";
     }

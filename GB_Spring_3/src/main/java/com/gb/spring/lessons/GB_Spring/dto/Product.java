@@ -1,12 +1,23 @@
 package com.gb.spring.lessons.GB_Spring.dto;
 
-public class Product {
-    private int id;
-    private String title;
-    private int cost;
+import javax.persistence.*;
 
-    public Product(int id, String title, int cost) {
-        this.id = id;
+@Entity
+@Table(name = "product")
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "price")
+    private Integer cost;
+
+    public Product(String title, int cost) {
+
         this.title = title;
         this.cost = cost;
     }
@@ -14,11 +25,11 @@ public class Product {
     public Product() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
